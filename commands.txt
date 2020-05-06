@@ -1,7 +1,8 @@
 
 
+git clone https://github.com/ohnotnow/docker-demo-talk.git
 
-docker run -v /var/run/docker.sock:/var/run/docker.sock -d -p 5000:3000 ohffs/swarm-visualiser:0.6.2
+docker run -d -v /var/run/docker.sock:/var/run/docker.sock -d -p 5000:3000 ohffs/swarm-visualiser:0.6.2
 
 docker stack deploy -c docker-compose.yml docker-demo --prune
 
