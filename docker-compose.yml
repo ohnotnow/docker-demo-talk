@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  flexml:
+    image: uogsoe/docker-demo:0.2
+    ports:
+      - "3000:3000"
+    deploy:
+      replicas: 10
+      restart_policy:
+        condition: any
+        delay: 5s
+
+  redis:
+    image: redis:5.0.5
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+  visualiser:
+    image: ohffs/swarm-visualiser:0.6.2
+    ports:
+      - "5001:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
