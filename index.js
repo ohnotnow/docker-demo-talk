@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const os = require("os");
-const hostname = os.hostname();
 
+const hostname = os.hostname();
 const numberOfLicences = 2;
 let licenseNumber = 1;
 

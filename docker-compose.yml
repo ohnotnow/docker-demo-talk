@@ -9,7 +9,10 @@ services:
       replicas: 10
       restart_policy:
         condition: any
-        delay: 5s
+      update_config:
+        parallelism: 2
+        failure_action: rollback
+        order: start-first
 
   redis:
     image: redis:5.0.5

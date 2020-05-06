@@ -1,0 +1,10 @@
+
+
+
+docker run -v /var/run/docker.sock:/var/run/docker.sock -d -p 5000:3000 ohffs/swarm-visualiser:0.6.2
+
+docker stack deploy -c docker-compose.yml docker-demo --prune
+
+while true; do curl http://localhost:3000/checkout ; sleep 1; done
+
+docker stack rm docker-demo
